@@ -1,0 +1,36 @@
+<section style="background-color: blanchedalmond;">
+  <div>
+    <div>
+      <div>
+        <h2>Atuendo aleatorio</h2>
+        <%= form_for @atuendo, :url => { :action => "create" } do |f| %>
+
+          <%= f.hidden_field :from_generate, :value => "hola" %>
+          <div>
+            <div>
+              <%= render 'prenda', prenda: @prenda_cabeza %>
+              <%= f.hidden_field :cabeza_id, :value => @prenda_cabeza.id %>
+            </div>
+            <div>
+              <%= render 'prenda', prenda: @prenda_torso %>
+              <%= f.hidden_field :torso_id, :value => @prenda_torso.id %>
+            </div>
+            <div>
+              <%= render 'prenda', prenda: @prenda_piernas %>
+              <%= f.hidden_field :piernas_id, :value => @prenda_piernas.id %>
+            </div>
+            <div>
+              <%= render 'prenda', prenda: @prenda_pies%>
+              <%= f.hidden_field :pies_id, :value => @prenda_pies.id %>
+            </div>
+            <p>
+              <%= f.submit :class => 'btn btn-default', :value => 'Guardar'%>
+              <a type="button" class="btn btn-primary" href="/guardarropas/<%= @prenda_pies.guardarropa_id %>/atuendos-generate">Generar otro</a>
+            </p>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</section>

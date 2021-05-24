@@ -1,0 +1,68 @@
+<div style="background-color: blanchedalmond;">
+<div class="row align-items-center">
+  <div>
+    <% if(!atuendo.ocasion_tag.blank?) %>
+        <span>
+          <%= atuendo.ocasion_tag%>
+        </span>
+    <%end%>
+    <% if(!atuendo.estacion_tag.blank?) %>
+        <span >
+          <%= atuendo.estacion_tag%>
+        </span>
+    <%end%>
+    <% if(!atuendo.tiempo_tag.blank?) %>
+        <span >
+          <%= atuendo.tiempo_tag%>
+        </span>
+    <%end%>
+    <div>
+      <fieldset >
+        <label <%= !atuendo.puntaje.nil? and atuendo.puntaje == 5 ? "star-color" : '' %>"></label>
+        <label <%= !atuendo.puntaje.nil? and atuendo.puntaje > 3 ? "star-color" : '' %>"></label>
+        <label <%= !atuendo.puntaje.nil? and atuendo.puntaje > 2 ? "star-color" : '' %>"></label>
+        <label <%= !atuendo.puntaje.nil? and atuendo.puntaje > 1 ? "star-color" : '' %>"></label>
+        <label <%= !atuendo.puntaje.nil? and atuendo.puntaje > 0 ? "star-color" : '' %>"></label>
+      </fieldset>
+    </div>
+  </div>
+</div>
+</div>
+<div>
+  <div >
+    <% if atuendo.cabeza.blank?  %>
+      <div>
+        <i class="fa fa-meh-o"></i> <span>Se eliminó esta prenda</span>
+      </div>
+    <% else %>
+      <%= render 'prenda', prenda: atuendo.cabeza %>
+    <%end%>
+  </div>
+  <div>
+    <% if atuendo.torso.blank?  %>
+      <div>
+        <i class="fa fa-meh-o"></i> <span>Se eliminó esta prenda</span>
+      </div>
+    <% else %>
+      <%= render 'prenda', prenda: atuendo.torso %>
+    <%end%>
+  </div>
+  <div>
+    <% if atuendo.piernas.blank?  %>
+      <div>
+        <i class="fa fa-meh-o"></i> <span>Se eliminó esta prenda</span>
+      </div>
+    <% else %>
+      <%= render 'prenda', prenda: atuendo.piernas %>
+    <%end%>
+  </div>
+  <div>
+    <% if atuendo.pies.blank?  %>
+      <div>
+        <i class="fa fa-meh-o"></i> <span>Se eliminó esta prenda</span>
+      </div>
+    <% else %>
+      <%= render 'prenda', prenda: atuendo.pies %>
+    <%end%>
+  </div>
+</div>
